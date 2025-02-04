@@ -23,7 +23,7 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type='text/markdown',
     python_requires='>=3.8',
-    url='https://github.com/sturdy-dev/semantic-code-search',
+    url='https://github.com/applynow/semantic-code-search',
     package_dir={
         "semantic_code_search": "src/semantic_code_search"
     },
