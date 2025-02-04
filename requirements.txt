@@ -1,0 +1,9 @@
+numpy
+prompt_toolkit
+Pygments
+sentence_transformers
+setuptools
+torch
+tree_sitter
+tree_sitter_builds
+tree_sitter_languages
