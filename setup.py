@@ -17,7 +17,6 @@ setuptools.setup(
                 'setuptools',
                 'torch',
                 'tree_sitter',
-                'tree_sitter_builds',
                 'tree_sitter_languages',
     ],
     long_description=long_description,
