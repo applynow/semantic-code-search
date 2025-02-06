@@ -19,7 +19,7 @@ setuptools.setup(
                 'torch',
                 'tree_sitter',
                 'tree_sitter_languages',
-                'importlib-resources <= 6.4.5; python_version < "3.10"'
+                'importlib-resources==6.4.5; python_version < "3.10"'
     ],
     long_description=long_description,
     long_description_content_type='text/markdown',
