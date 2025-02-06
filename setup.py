@@ -14,6 +14,7 @@ setuptools.setup(
                 'prompt_toolkit',
                 'Pygments',
                 'sentence_transformers',
+                'sklearn',
                 'setuptools',
                 'torch',
                 'tree_sitter',

@@ -2,6 +2,7 @@ numpy
 prompt_toolkit
 Pygments
 sentence_transformers
+scikit-learn
 setuptools
 torch
 tree_sitter
