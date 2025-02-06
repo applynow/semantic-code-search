@@ -3,6 +3,7 @@ import os
 import sys
 import pickle
 from textwrap import dedent
+import re
 
 import numpy as np
 from tree_sitter import Tree, Parser, Language
@@ -62,6 +63,11 @@ def _get_repo_functions(root, supported_file_extensions, relevant_node_types):
             if lang is None:
                 # skip other languages
                 continue
+
+            # 正規表現で、testファイル以外はスキップする
+            if re.search(r'test', fp) is None:
+                continue
+            print('Processing {}'.format(fp))
 
             parser = Parser(language=PY_LANGUAGE)
             file_content = f.read()
