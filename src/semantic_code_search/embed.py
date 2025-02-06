@@ -6,9 +6,11 @@ from textwrap import dedent
 
 import numpy as np
 from tree_sitter import Tree
-from tree_sitter_languages import get_parser
+import tree_sitter_python as tspython
+from tree_sitter_python import Language, Parser
 from tqdm import tqdm
 
+PY_LANGUAGE = Language(tspython.language())
 
 def _supported_file_extensions():
     return {
@@ -73,7 +75,9 @@ def _get_repo_functions(root, supported_file_extensions, relevant_node_types):
             else:
                 # skip other languages
                 continue
-            parser = get_parser(lang)
+            # parser = get_parser(lang)
+            parser = Parser()
+            parser.set_language(PY_LANGUAGE)
             file_content = f.read()
             tree = parser.parse(bytes(file_content, 'utf8'))
             all_nodes = list(_traverse_tree(tree.root_node))

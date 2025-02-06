@@ -19,6 +19,7 @@ setuptools.setup(
                 'torch',
                 'tree_sitter',
                 'tree_sitter_languages',
+                'tree_sitter_python',
     ],
     long_description=long_description,
     long_description_content_type='text/markdown',

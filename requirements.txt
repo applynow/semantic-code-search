@@ -7,3 +7,4 @@ setuptools
 torch
 tree_sitter
 tree_sitter_languages
+tree_sitter_python
