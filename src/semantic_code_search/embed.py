@@ -67,13 +67,18 @@ def _get_repo_functions(root, supported_file_extensions, relevant_node_types):
             continue
         with open(fp, 'r') as f:
             lang = supported_file_extensions.get(fp[fp.rfind('.'):])
-            if lang:
-                parser = get_parser(lang)
-                file_content = f.read()
-                tree = parser.parse(bytes(file_content, 'utf8'))
-                all_nodes = list(_traverse_tree(tree.root_node))
-                functions.extend(_extract_functions(
-                    all_nodes, fp, file_content, relevant_node_types))
+            if lang == 'python':
+                lang = 'python3'
+                print(lang)
+            else:
+                # skip other languages
+                continue
+            parser = get_parser(lang)
+            file_content = f.read()
+            tree = parser.parse(bytes(file_content, 'utf8'))
+            all_nodes = list(_traverse_tree(tree.root_node))
+            functions.extend(_extract_functions(
+                all_nodes, fp, file_content, relevant_node_types))
     return functions
 
 
