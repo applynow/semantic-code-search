@@ -12,21 +12,21 @@ from tqdm import tqdm
 
 def _supported_file_extensions():
     return {
-        '.rb': 'ruby',
-        '.go': 'go',
-        '.rs': 'rust',
-        '.java': 'java',
-        '.js': 'javascript',
-        '.ts': 'typescript',
+        # '.rb': 'ruby',
+        # '.go': 'go',
+        # '.rs': 'rust',
+        # '.java': 'java',
+        # '.js': 'javascript',
+        # '.ts': 'typescript',
         '.py': 'python',
-        '.c': 'c',
-        '.h': 'c',
-        '.cpp': 'cpp',
-        '.hpp': 'cpp',
-        '.kt': 'kotlin',
-        '.kts': 'kotlin',
-        '.ktm': 'kotlin',
-        '.php': 'php',
+        # '.c': 'c',
+        # '.h': 'c',
+        # '.cpp': 'cpp',
+        # '.hpp': 'cpp',
+        # '.kt': 'kotlin',
+        # '.kts': 'kotlin',
+        # '.ktm': 'kotlin',
+        # '.php': 'php',
     }
 
 
