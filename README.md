@@ -1,3 +1,5 @@
+このレポジトリはhttps://github.com/sturdy-dev/semantic-code-searchを参考にしています。
+
 # セマンティックコード検索 (Semantic Code Search)
 
 ## 概要
@@ -9,7 +11,7 @@
 - 「Webhook イベントの処理」
 - 「キューからジョブを読み込む処理はどこ？」
 
-これにより、検索結果としてコードスニペットとその `ファイル:行番号` が視覚的に表示されます。  
+これにより、検索結果としてコードスニペットとその `ファイル:行番号` が視覚的に表示されます。
 大規模なコードベースの探索に役立つのはもちろん、小規模なプロジェクトでも「どこに何を書いたか忘れた！」という場合に便利です。
 
 ### 基本的な使い方:
@@ -25,7 +27,7 @@ sem '検索クエリ'
 
 このツールはニューラルネットワークを使用してコードの埋め込み (embeddings) を生成し、類似性を比較することで検索を行います。詳しくは 仕組み を参照してください。
 
-	NB: すべての処理はローカル環境で行われ、インターネットにデータが送信されることはありません。
+    NB: すべての処理はローカル環境で行われ、インターネットにデータが送信されることはありません。
 
 ## インストール
 
@@ -63,15 +65,16 @@ sem '検索クエリ'
 初回検索時の処理
 
 初めて検索を実行する際は、以下の2つの処理が必要です：
+
 - モデル (~500MB) のダウンロード (一度だけ)
 - コードの埋め込み (embeddings) の生成
-→ これは .embeddings ファイルとしてリポジトリのルートにキャッシュされ、次回以降の検索時に再利用されます。
+  → これは .embeddings ファイルとしてリポジトリのルートにキャッシュされ、次回以降の検索時に再利用されます。
 
 プロジェクトのサイズによって、これらの処理には数秒〜数分かかることがあります。ただし、一度完了すれば、検索は非常に高速になります。
 
 検索結果の例
 
-```bash session
+```bash
 foo@bar:~$ cd /my/repo
 foo@bar:~$ sem 'コマンドライン引数の解析'
 Embeddings not found in /Users/kiril/src/semantic-code-search. Generating embeddings now.
@@ -82,6 +85,7 @@ Batches: 100%|██████████████████████
 ### 検索結果のナビゲーション
 
 検索結果はデフォルトで上位5件が表示され、以下の情報が含まれます：
+
 - 類似度スコア
 - ファイルパス
 - 行番号
@@ -139,7 +143,7 @@ usage: sem [-h] [-p PATH] [-m MODEL] [-d] [-b BS] [-x EXT] [-n N]
 
 以下の記事で概念が分かりやすく説明されています：
 
-> Illustrated Word2Vec - Jay Alammar <https://jalammar.github.io/illustrated-word2vec/>
+> Illustrated Word2Vec - Jay Alammar [https://jalammar.github.io/illustrated-word2vec/](https://jalammar.github.io/illustrated-word2vec/)
 
 ### モデル
 
@@ -153,7 +157,7 @@ usage: sem [-h] [-p PATH] [-m MODEL] [-d] [-b BS] [-x EXT] [-n N]
 --model オプションを使用すれば、他の sentence transformer モデルも試せます。
 
 ### バグと制限
-	•	.embeddings はリポジトリの変更を自動更新しない (手動で sem --embed を実行する必要あり)
+
+    •	.embeddings はリポジトリの変更を自動更新しない (手動で sem --embed を実行する必要あり)
 	•	対応言語: { 'python', 'javascript', 'typescript', 'ruby', 'go', 'rust', 'java', 'c', 'c++', 'kotlin' }
 	•	対応エディタ: { 'vscode', 'vim' }
-
