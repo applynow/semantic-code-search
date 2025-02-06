@@ -80,7 +80,7 @@ def _get_repo_functions(root, supported_file_extensions, relevant_node_types):
 
 def do_embed(args, model):
     nodes_to_extract = ['function_definition', 'method_definition',
-                        'function_declaration', 'method_declaration']
+                        'function_declaration', 'method_declaration', 'decorated_definition']
     functions = _get_repo_functions(
         args.path_to_repo, _supported_file_extensions(), nodes_to_extract)
 
@@ -89,7 +89,7 @@ def do_embed(args, model):
         sys.exit(1)
 
     print('Embedding {} functions in {} batches. This is done once and cached in .embeddings'.format(
-        len(functions), int(np.ceil(len(functions)/args.batch_size))))
+        len(functions), int(np.ceil(len(functions) / args.batch_size))))
     corpus_embeddings = model.encode(
         [f['text'] for f in functions], convert_to_tensor=True, show_progress_bar=True, batch_size=args.batch_size)
 
